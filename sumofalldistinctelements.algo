@@ -1,0 +1,54 @@
+ALGORITHM sumofalldistinctelements
+
+VAR
+    array1,array2,array3 : ARRAY_OF_INTEGER;             //array declaration
+    set1,set2,sum: INTEGER;                           //variable declaration
+BEGIN
+    array3 :=[];                                    //initializes an empty array
+
+                                                    //variable initialisation
+    set1 := 0;
+    set2 := 0;
+    sum  := 0;   
+
+    Read (array1);                                       //read the vaues inside the both arrays
+    Read (array2);
+
+    
+    FOR set1 FROM 0 TO LENGTH(array1) - 1 DO{            // Iterating elements in array1
+
+    
+    FOR set2 FROM 0 TO LENGTH(array2) - 1 DO{            // Iterating elements in array2
+    
+    IF array1[set1] != array2[set2] THEN                // Comparing if values of array1 are not equal to array2
+    
+    array3.push(array1[set1]);                             // If the values are not equal, add array1[set1] to array3
+    ENDIF
+    }
+    ENDFOR
+    ENDFOR
+}
+
+
+    FOR set2 FROM 0 TO LENGTH(array2) - 1 DO{                // Iterating elements in array2
+    
+   FOR set2 FROM 0 TO LENGTH(array1) - 1 DO{               // Iterate through each element of array2
+                                                    
+    IF array2[set2] != array1[set1] THEN                    // Comparing if values of array2 are not equal to array1
+                                                            
+    array3.push(array2[set2]);                              // If the values are not equal, add array2[set2] to array3
+    ENDIF
+    }
+    ENDFOR
+    ENDFOR
+}
+
+
+    FOR set1 := 0 TO LENGTH(array3) - 1 D0{                    //Iterate through array3 and calculate the sum of the elements
+    sum = sum + array3[set1];
+}
+
+
+    OUTPUT: sum;                                              //show results
+
+END
